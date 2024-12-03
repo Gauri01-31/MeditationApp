@@ -3,18 +3,18 @@ package com.user.model;
 public class User {
 	
 	private int id;
-	private String uname;
+	private String username;
 	private String email;
 	private String country;
 	private String password;
-	public User() {
+	public User(){
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int id, String uname, String email, String country, String password) {
+	public User(int id, String username, String email, String country, String password) {
 		super();
 		this.id = id;
-		this.uname = uname;
+		this.username = username;
 		this.email = email;
 		this.country = country;
 		this.password = password;
@@ -25,11 +25,11 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUname() {
-		return uname;
+	public String getUsername() {
+		return username;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getEmail() {
 		return email;
@@ -51,7 +51,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", uname=" + uname + ", email=" + email + ", country=" + country + ", password="
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", country=" + country + ", password="
 				+ password + "]";
 	}
 	

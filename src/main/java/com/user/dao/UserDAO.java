@@ -13,7 +13,7 @@ import com.user.model.User;
 
 public class UserDAO {
 	
-	private String jdbcURL="jdbc:mysql://localhost:30006/meditationappdb";
+	private String jdbcURL="jdbc:mysql://localhost:3307/meditationappdb";
 	private String jdbcUserName="root";
 	private String jdbcPassword="root";
 	
@@ -57,7 +57,7 @@ public class UserDAO {
 		try(Connection connection =dao.getConnection())
 		{
 			PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USER_SQL);
-			preparedStatement.setString(1, user.getUname());
+			preparedStatement.setString(1, user.getUsername());
 			preparedStatement.setString(2, user.getEmail());
 			preparedStatement.setString(3, user.getCountry());
 			preparedStatement.setString(4, user.getPassword());
@@ -84,7 +84,7 @@ public class UserDAO {
 			
 			while(resultSet.next()){
 				user.setId(id);
-				user.setUname(resultSet.getString("uname"));
+				user.setUsername(resultSet.getString("uname"));
 				user.setEmail(resultSet.getString("email"));
 				user.setCountry(resultSet.getString("country"));
 				user.setPassword(resultSet.getString("passwd"));
@@ -146,6 +146,10 @@ public class UserDAO {
 		
 		return status;
 		
+	}
+
+	public static String getUpdateUsersSql() {
+		return UPDATE_USERS_SQL;
 	}
 	
 }
