@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 import com.user.dao.UserDAO;
 import com.user.model.User;
 
@@ -16,40 +16,38 @@ public class LoginServlet extends HttpServlet {
     private UserDAO userDAO;
 
     @Override
-    public void init() {
-        userDAO = new UserDAO();
+    public void init() throws ServletException {
+        userDAO = new UserDAO(); // Initialize the DAO
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Just show the login form when the GET request is made
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Get parameters from the login form
         String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
         String password = request.getParameter("password");
 
-        response.setContentType("text/html");
+        // Validate user
+        User user = userDAO.getUserByUsername(username); // Fetch user by username
+        if (user != null && user.getPassword().equals(password)) {
+            // Successful login - Store the username in the session
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
 
-        // Authenticate user
-        boolean isValidUser = authenticateUser(username, email, country, password);
-
-        if (isValidUser) {
-            response.getWriter().println("<h1>Login Successful! Welcome, " + username + "!</h1>");
+            // Redirect to the homepage after successful login
+            response.sendRedirect("website.jsp");
         } else {
-            response.getWriter().println("<h1>Invalid credentials. Please try again.</h1>");
+            // Login failed, redirect back to login page or show error message
+            request.setAttribute("errorMessage", "Invalid username or password. Please try again.");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-    }
-
-    private boolean authenticateUser(String username, String email, String country, String password) {
-        for (User user : userDAO.selectAllUsers()) {
-            if (user.getUsername().equals(username) &&
-                user.getEmail().equals(email) &&
-                user.getCountry().equals(country) &&
-                user.getPassword().equals(password)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
 
