@@ -5,20 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meditation Resources</title>
     <link rel="stylesheet" href="Style.css">
+    <style>
+        /* Ensuring the footer stays at the bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .meditation-container {
+            flex: 1; /* Ensures the main content takes up all available space */
+            padding-top: 80px; /* Adjusted padding for the header */
+            padding-bottom: 60px; /* Space for the footer */
+        }
+
+        /* Styling for the header to make it stay at the top */
+        header {
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Background color for better contrast */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            z-index: 10; /* Ensures header stays on top of other content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+        }
+
+        header p {
+            margin: 0;
+        }
+
+        /* Styling for the shadow-box */
+        .shadow-box {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 40px 20px 20px 20px;
+            border-radius: 10px;
+            background-color: rgba(249, 249, 249, 0.9); /* Slightly higher opacity for clarity */
+            color: black;
+        }
+
+        /* Meditation images section */
+        .meditation-images-box {
+            margin-top: 20px;
+        }
+
+        .meditation-images {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 40px;
+        }
+
+        .meditation-images div {
+            text-align: center;
+            min-width: 220px;
+        }
+
+        .meditation-images img {
+            max-width: 250px;
+            border-radius: 8px;
+        }
+
+        .meditation-images p {
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Optional: Style for the scrollbar */
+        .meditation-images::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .meditation-images::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .meditation-images::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Styling for the logout link */
+        .logout-link {
+            font-size: 20px;
+            color: #FF0000;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 150px;
+        }
+
+        .logout-link:hover {
+            background-color: #f1f1f1;
+            color: #cc0000;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Footer Styling */
+        .footer {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            font-size: 70px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .shadow-box p {
+            color: black;
+            font-size: 18px;
+            line-height: 1.6;
+            padding: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <p>Welcome to Serenity Space</p>
+    </header>
+
     <div class="meditation-container">
-        <header>
-            <p>Welcome to Serenity Space</p>
-        </header>
+        <div class="shadow-box">
+            <p>Meditation is a practice that fosters a deep sense of inner peace and mindfulness, offering a sanctuary from the chaos of daily life. By focusing attention and eliminating the stream of jumbled thoughts that may crowd the mind, meditation enhances emotional well-being and mental clarity. It has been shown to reduce stress, improve concentration, and cultivate a sense of balance and harmony. Whether practiced through guided sessions, mindfulness techniques, or silent reflection, meditation empowers individuals to connect with their inner selves, promoting self-awareness and resilience. Over time, this practice can transform not only one's mental state but also physical health, fostering a holistic approach to well-being.</p>
+        </div>
+
+        <!-- Meditation Types Section -->
+        <h2>Types of Meditation</h2>
+        <div class="meditation-images-box">
+            <div class="meditation-images">
+                <div>
+                    <img src="mindfulness.jpeg" alt="Mindfulness Meditation" />
+                    <p>Mindfulness Meditation</p>
+                </div>
+                <div>
+                    <img src="transcendental.jpg" alt="Transcendental Meditation" />
+                    <p>Transcendental Meditation</p>
+                </div>
+                <div>
+                    <img src="yoga.jpg" alt="Yoga Meditation" />
+                    <p>Yoga Meditation</p>
+                </div>
+                <div>
+                    <img src="loving-kindness.jpg" alt="Loving-Kindness Meditation" />
+                    <p>Loving-Kindness Meditation</p>
+                </div>
+                <div>
+                    <img src="zen.jpg" alt="Zen Meditation" />
+                    <p>Zen Meditation</p>
+                </div>
+                <div>
+                    <img src="chakra.jpg" alt="Chakra Meditation" />
+                    <p>Chakra Meditation</p>
+                </div>
+                <div>
+                    <img src="guided.jpg" alt="Guided Meditation" />
+                    <p>Guided Meditation</p>
+                </div>
+                <div>
+                    <img src="bodyscan.jpg" alt="Body Scan Meditation" />
+                    <p>Body Scan Meditation</p>
+                </div>
+                <div>
+                    <img src="mantra.jpg" alt="Mantra Meditation" />
+                    <p>Mantra Meditation</p>
+                </div>
+                <div>
+                    <img src="movement.jpg" alt="Movement Meditation" />
+                    <p>Movement Meditation</p>
+                </div>
+                <div>
+                    <img src="visualization.png" alt="Visualization Meditation" />
+                    <p>Visualization Meditation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guided Meditation Sessions Section -->
         <h1>Guided Meditation Sessions</h1>
         <div class="meditation-content">
             <a href="https://www.youtube.com/watch?v=H_uc-uQ3Nkc" target="_blank">Guided Meditation Video</a>
             <a href="https://www.youtube.com/watch?v=ijfLsKg8jFY" target="_blank">Audio Meditation 1</a>
             <a href="https://www.youtube.com/watch?v=vPvIxwh9N2w" target="_blank">Audio Meditation 2</a>
-            <a href="https://www.mindful.org/meditation/mindfulness-getting-started/" target="_blank">Meditation Article </a>
+            <a href="https://www.mindful.org/meditation/mindfulness-getting-started/" target="_blank">Meditation Article</a>
         </div>
         <a href="logout.html" class="btn">Logout</a>
     </div>
+
+    <div class="footer">
+        Made with love by Serenity Space
+    </div>
 </body>
 </html>
+
+
+
