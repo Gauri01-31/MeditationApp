@@ -17,22 +17,8 @@ Welcome to **MeditationApp**, a web-based application designed to help users exp
 
 ## 🏗 Project Structure
 
-MeditationApp-Main/
-├── src/
-│ ├── main/
-│ │ ├── java/com/user/
-│ │ │ ├── dao/
-│ │ │ ├── model/
-│ │ │ └── servlet/
-│ │ └── webapp/
-│ │ ├── images/
-│ │ ├── css/
-│ │ ├── loginpage.html, logout.jsp, index.jsp, website.html
-│ │ └── WEB-INF/
-│ └── test/java/com/user/dao/UserDAOTest.java
-├── schema.sql
-├── pom.xml
-└── README.md
+<img width="511" height="405" alt="image" src="https://github.com/user-attachments/assets/85b3bfd7-76d6-4f2a-8de2-2baa22a11c00" />
+
 
 
 ---
